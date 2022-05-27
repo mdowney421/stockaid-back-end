@@ -19,6 +19,7 @@ mongoose.connection.on('connected', () => console.log('mongo connected: ', MONGO
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 // MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cors())
 
