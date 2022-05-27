@@ -2,17 +2,21 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const Stock = require('./models/stock.js')
+// const Stock = require('./models/stock.js')
 const cors = require('cors')
-const seedData = require('./models/seed-data.js')
+// const seedData = require('./models/seed-data.js')
+require('dotenv').config()
+
 
 // CONNECTIONS
-mongoose.connect('mongodb://localhost:27017/stockdata')
-// mongoose.connect()
-mongoose.connection.once('open', () => {
-    console.log('connected to mongod...')
+// mongoose.connect('mongodb://localhost:27017/stockdata')
+const MONGODB_URI = process.env.MONGODB_URI
+mongoose.connect(MONGODB_URI, () => {
+    console.log('connected to mongo atlas...')
 })
-
+mongoose.connection.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
+mongoose.connection.on('connected', () => console.log('mongo connected: ', MONGODB_URI))
+mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 // MIDDLEWARE
 app.use(express.json())
