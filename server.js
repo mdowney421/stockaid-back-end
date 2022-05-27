@@ -36,6 +36,10 @@ app.post('/stocks', (req, res) => {
     })
 })
 
+app.get('/', (req, res) => {
+    res.send('hello world')
+})
+
 app.get('/stocks', (req, res) => {
     Stock.find({}, (error, foundStocks) => {
         res.json(foundStocks)
