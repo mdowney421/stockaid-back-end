@@ -24,39 +24,39 @@ app.use(cors())
 
 
 // RESTful CRUD ROUTES
-app.post('/stocks/seed', (req, res) => {
-    Stock.create(seedData, (error, createdSeedData) => {
-        res.json(createdSeedData)
-    })
-})
+// app.post('/stocks/seed', (req, res) => {
+//     Stock.create(seedData, (error, createdSeedData) => {
+//         res.json(createdSeedData)
+//     })
+// })
 
-app.post('/stocks', (req, res) => {
-    Stock.create(req.body, (error, createdStock) => {
-        res.json(createdStock)
-    })
-})
+// app.post('/stocks', (req, res) => {
+//     Stock.create(req.body, (error, createdStock) => {
+//         res.json(createdStock)
+//     })
+// })
 
 app.get('/', (req, res) => {
     res.send('hello world')
 })
 
-app.get('/stocks', (req, res) => {
-    Stock.find({}, (error, foundStocks) => {
-        res.json(foundStocks)
-    })
-})
+// app.get('/stocks', (req, res) => {
+//     Stock.find({}, (error, foundStocks) => {
+//         res.json(foundStocks)
+//     })
+// })
 
-app.put('/stocks/:id', (req, res) => {
-    Stock.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedStock) => {
-        res.json(updatedStock)
-    })
-})
+// app.put('/stocks/:id', (req, res) => {
+//     Stock.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedStock) => {
+//         res.json(updatedStock)
+//     })
+// })
 
-app.delete('/stocks/:id', (req, res) => {
-    Stock.findByIdAndRemove(req.params.id, (error, deletedStock) => {
-        res.json(deletedStock)
-    })
-})
+// app.delete('/stocks/:id', (req, res) => {
+//     Stock.findByIdAndRemove(req.params.id, (error, deletedStock) => {
+//         res.json(deletedStock)
+//     })
+// })
 
 
 // LISTEN
