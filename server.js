@@ -5,6 +5,7 @@ const app = express ()
 const db = mongoose.connection
 require('dotenv').config()
 const Stock = require('./controllers/stock.js')
+const cors = require('cors')
 
 
 // PORT
@@ -23,6 +24,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+app.use(cors())
 
 
 // CRUD ROUTES
