@@ -5,6 +5,7 @@ const app = express ()
 const db = mongoose.connection
 require('dotenv').config()
 const Stock = require('./controllers/stock.js')
+const Recommendation = require('./controllers/recommendation.js')
 const cors = require('cors')
 
 
@@ -47,6 +48,12 @@ app.post('/stocks', (req, res) => {
 app.get('/stocks', (req, res) => {
   Stock.find({}, (error, foundStocks) => {
       res.json(foundStocks)
+  })
+})
+
+app.get('/recommendations', (req, res) => {
+  Recommendation.find({}, (error, foundRecommendations) => {
+      res.json(foundRecommendations)
   })
 })
 
