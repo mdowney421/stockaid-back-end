@@ -7,10 +7,12 @@ require('dotenv').config()
 const Stock = require('./controllers/stock.js')
 const Recommendation = require('./controllers/recommendation.js')
 const cors = require('cors')
+const request = require('request')
 
 
-// PORT
+// ENV VARIABLES
 const PORT = process.env.PORT || 3003
+const API_KEY = process.env.API_KEY
 
 
 // DATABASE
@@ -66,6 +68,20 @@ app.put('/stocks/:id', (req, res) => {
 app.delete('/stocks/:id', (req, res) => {
   Stock.findByIdAndRemove(req.params.id, (error, deletedStock) => {
       res.json(deletedStock)
+  })
+})
+
+
+// API ROUTES
+app.get('/api/one/:id', (req, res) => {
+  request(`https://api.polygon.io/v3/reference/tickers?ticker=${req.params.id}&active=true&sort=ticker&order=asc&limit=10&apiKey=${API_KEY}`, (error, body) => {
+    res.json(body)
+  })
+})
+
+app.get('/api/two/:id', (req, res) => {
+  request(`https://api.polygon.io/v2/aggs/ticker/${req.params.id}/prev?adjusted=true&apiKey=${API_KEY}`, (error, body) => {
+    res.json(body)
   })
 })
 
