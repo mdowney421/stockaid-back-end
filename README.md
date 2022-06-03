@@ -8,9 +8,8 @@ This is a MERN stack application where users can see trending stocks and add sto
 This application uses stock tickers to fetch data from two different API routes. One API route fetches the company name while the other fetches closing price and daily percentage change data.
 
 ## How to Use
-Front-end repository: https://github.com/eckmanmatt/stockaid-frontend/tree/master
-
-Deployed website: https://stockaid-portfolio-manager.herokuapp.com/
+* Front-end repository: https://github.com/eckmanmatt/stockaid-frontend/tree/master
+* Deployed website: https://stockaid-portfolio-manager.herokuapp.com/
 
 ## Technologies Used
 * React
@@ -28,5 +27,5 @@ API keys - It was discovered toward the end of the project that there was no way
 
 
 ## Contributors
-Matt Downey - Back-end & front-end development
-Matt Eckman - Front-end development
+* Matt Downey - Back-end & front-end development
+* Matt Eckman - Front-end development
